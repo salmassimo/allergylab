@@ -20,7 +20,7 @@ services:
     db-loader:
       build: db-loader/.
       volumes: 
-        - C:/Users/johnr/Desktop/allergy-lab-watchfolder:/mnt/watchfolder/
+        - /Users/saliernomassimo/Desktop/allergy-lab-watchfolder
       environment:
         FOLDER_PATH: /mnt/watchfolder/
       env_file: .env
