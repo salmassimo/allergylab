@@ -7,12 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v7
 
       - name: Build image
+        working-directory: Part7a
         run: |
           docker build -t ${{ secrets.DOCKER_USERNAME }}/allergylab:latest ./app
           docker build -t ${{ secrets.DOCKER_USERNAME }}/al-db-loader:latest ./db-loader
           docker build -t ${{ secrets.DOCKER_USERNAME }}/al-email:latest ./email
 
-          
