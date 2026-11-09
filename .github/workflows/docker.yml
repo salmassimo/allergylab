@@ -26,15 +26,15 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/al-db-loader:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/al-email:latest
   deploy:
-  needs: [build]
-  runs-on: ubuntu-latest
+    needs: [build]
+    runs-on: ubuntu-latest
     steps:
       - name: '**PLACEHOLDER** Deploy to kubernetes'
         run: echo "Deploying to kubernetes..."
       - name: Run container on server
-        run: | 
-        docker run -d ${{ secrets.DOCKER_USERNAME }}/al-app:latest
-        docker run -d ${{ secrets.DOCKER_USERNAME }}/al-db-loader:latest
-        docker run -d ${{ secrets.DOCKER_USERNAME }}/al-email:latest
+        run: |
+          docker run -d ${{ secrets.DOCKER_USERNAME }}/allergylab:latest
+          docker run -d ${{ secrets.DOCKER_USERNAME }}/al-db-loader:latest
+          docker run -d ${{ secrets.DOCKER_USERNAME }}/al-email:latest
 
 
